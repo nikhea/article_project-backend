@@ -15,7 +15,7 @@ exports.Singup = (req, res, next) => {
             confirmPassword
 
         })
-  
+        console.log(newuser)
     } catch (error) {
         
     }

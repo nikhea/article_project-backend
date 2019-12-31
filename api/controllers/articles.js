@@ -27,12 +27,12 @@ exports.create_new_articles = async (req, res, next) => {
 			image: req.body.image
 		});
 		console.log(Article);
-		// const article = await Article.save();
+		const article = await Article.save();
 
 		if (article) {
 			res.status(201).json(article);
 		} else {
-			// res.status(500).json({ msg: 'unable to create new Article ' });
+			res.status(500).json({ msg: 'unable to create new Article ' });
 		}
 
 		res.status(201).json({ message: 'article post route' });
