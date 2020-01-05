@@ -75,21 +75,21 @@ exports.update_one_article = async (req, res, next) => {
 		UpdateArticle.author = req.body.author;
 		UpdateArticle.description = req.body.description;
 		UpdateArticle.image = req.body.image;
-	
+
 		// console.log(req.body);
 		// console.log(UpdateArticle);
 		let article = db.Article
-			.updateOne({ _id: id}, {'$set':{...UpdateArticle}})
+			.updateOne({ _id: id }, { $set: { ...UpdateArticle } })
 			.select('title author description createdDate  image')
 			.exec();
-		console.log(article)
+		console.log(article);
 		if (article) {
 			// console.log(article.id)
-			res.status(200).json(article)
+			res.status(200).json(article);
 		}
 	} catch (err) {
 		// console.log(err);
-		res.status(500).json({ msg: 'Article not Updated', err: err })
+		res.status(500).json({ msg: 'Article not Updated', err: err });
 	}
 };
 
