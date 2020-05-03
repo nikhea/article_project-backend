@@ -19,17 +19,17 @@ const ArticlesSchema = new Schema({
 		type: String,
 		require: true
 	},
+	createdDate: {
+		type: Date,
+		default: Date.now
+	},
 	comments: [
 		{
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'Comment',
 			require: true
 		}
-	],
-	createdDate: {
-		type: Date,
-		default: Date.now
-	}
+	]
 });
 
 const Articles = mongoose.model('Articles', ArticlesSchema);
